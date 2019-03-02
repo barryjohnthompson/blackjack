@@ -56,4 +56,4 @@ class Player():
     def showHand(self):
         print( "{}'s hand:".format(self.name) )
         for card in self.hand:
-            print("  " + str(card)
+            print("  " + str(card))
