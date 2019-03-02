@@ -1,6 +1,13 @@
+"""
+Tests for the blackjack.py models.
+"""
+
 from blackjack import Card, Deck, Player
 
 def test_Card():
+    """
+    Test that a card object is created correctly.
+    """
 
     card = Card(rank=7, suit="Hearts")
     assert isinstance(card, Card) is True
@@ -10,7 +17,10 @@ def test_Card():
     return
 
 def test_Deck():
-    
+    """
+    Test that a deck object is created correctly.
+    """
+
     deck = Deck()
     assert isinstance(deck, Deck)
     assert deck.cards != None
@@ -19,6 +29,9 @@ def test_Deck():
     return
 
 def test_Shuffle():
+    """
+    Test that a deck of cards is shuffled correctly.
+    """
 
     d = Deck()
     # store deck before shuffling for comparison
@@ -31,6 +44,9 @@ def test_Shuffle():
 
 
 def test_DrawCard():
+    """
+    Test that a card is drawn from a deck correctly.
+    """
 
     d = Deck()
     d.shuffle()
@@ -44,6 +60,9 @@ def test_DrawCard():
 
 
 def test_Player():
+    """
+    Test that player objects are created correctly.
+    """
 
     p1 = Player("Matt")
     p2 = Player("Penny")
@@ -58,7 +77,11 @@ def test_Player():
 
 
 def test_SinglePlayerDrawCard():
-        
+    """
+    Test that a single player can draw a card from a deck to their hand. Ensure the card is present in the player's hand
+    but not present in the deck after being drawn.
+    """
+
     d = Deck()
     d.shuffle()
     p1 = Player("Matt")
@@ -76,6 +99,10 @@ def test_SinglePlayerDrawCard():
 
 
 def test_MultiplePlayerDrawCard():
+    """
+    Test that multiple players can draw cards from a deck to their hand. Ensure the card is present in the player's hand
+    but not present in the deck after being drawn or in the other player's hand.
+    """
 
     d = Deck()
     d.shuffle()
